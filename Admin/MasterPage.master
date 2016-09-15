@@ -1,0 +1,213 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Admin_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+
+    <title>سایت خبری و مسابقه آریا</title>
+
+    <script src="../bootstrap/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        a{text-align:right;}
+    </style>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            
+            <!--------------------------------------------------------------->
+            <!------------------------[Titel Header]------------------------->
+            <!--------------------------------------------------------------->
+            <div dir="rtl" class="jumbotron">
+                <h2>سایت خبری و مسابقه آریا (پنل مدریت)</h2>
+            </div>
+            <!------------------------------[END]---------------------------->
+
+            <!--------------------------------------------------------------->
+            <!-----------------------------[Menu]---------------------------->
+            <!--------------------------------------------------------------->
+            <nav class="navbar navbar-default">
+
+	        	<div class="container-fluid">
+			        <div class="navbar-header">
+				        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+				        </button>
+			        </div>
+			
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul dir="rtl" class="nav navbar-nav navbar-right">
+                            
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">تنظیمات
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="SettingPanel.aspx">امکان ورود به پنل کاربر</a></li>
+                                    <li><a href="Blocks_About_Edit.aspx">ویرایش اطلاعات درباره ما</a></li>
+                                    <li><a href="Blocks.aspx">تنظیمات بلاک ها</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">کاربران
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="User_Active.aspx">فعال و غیر فعال سازی کاربران</a></li>
+                                    <li><a href="User_Edit.aspx">ویرایش کاربران</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">خبر
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="News_Add.aspx">ثبت خبر</a></li>
+                                    <li><a href="News_Edit.aspx">ویرایش خبر</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">مسابقه
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-header" style="text-align:right">مسابقه</li>
+                                    <li><a href="TournamentDate_Add.aspx">ثبت مسابقه</a></li>
+                                    <li><a href="TournamentDate_Edit.aspx">ویرایش مسایقه</a></li>
+
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header" style="text-align:right">سوالات</li>
+                                    <li><a href="Question_Add.aspx">ثبت سوال</a></li>
+                                    <li><a href="Question_Add_True_Answers.aspx">ثبت جواب های صحیح</a></li>
+                                    <li><a href="Question_Edit.aspx">ویرایش سوال</a></li>
+
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header" style="text-align:right">نتیجه مسابقات</li>
+                                    <li><a href="Wins.aspx">نتیجه مسابقات</a></li>
+                                    <li><a href="Wins2.aspx">شرکت کنندگان</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="InfoMember_Edit.aspx">ویرایش مشخصات</a></li>
+                            <li><a href="Default.aspx">صفحه اصلی</a></li>
+                            <li><a href="../Default.aspx" target="_blank">خانه</a></li>
+                        </ul>
+                    </div>
+		        </div>
+
+	        </nav>
+            <!------------------------------[END]---------------------------->
+
+            <!--------------------------------------------------------------->
+            <!-----------------------------[Main]---------------------------->
+            <!--------------------------------------------------------------->
+            <div class="panel-group">
+                    
+                <!--------------------------------------------------------------->
+                <!----------------------------[Center]--------------------------->
+                <!--------------------------------------------------------------->
+                <div class="col-md-9">
+
+				        <div class="panel panel-default" style="margin:0px -20px 0px -15px;" dir="rtl">
+                            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                            
+                            </asp:ContentPlaceHolder>
+				        </div>
+
+                    </div>
+                <!------------------------------[END]---------------------------->
+                
+                <!--------------------------------------------------------------->
+                <!----------------------------[Right]---------------------------->
+                <!--------------------------------------------------------------->
+			    <div class="col-md-3">
+
+				    <div class="panel panel-default" style="margin:0px -15px 0px 0px;">
+					    <div class="panel-heading" align="right">مشخصات</div>
+					    <div class="panel-body" align="right" dir="rtl">
+                                
+                            <p>
+                                <asp:Label ID="lbl1" runat="server" Text="کد کاربری :"></asp:Label>
+                                &nbsp;&nbsp;
+                                <asp:Label ID="lblUserID" runat="server" Text=""></asp:Label>
+                            </p>
+                                
+                            <p>
+                                <asp:Label ID="lbl2" runat="server" Text="نام کاربری :"></asp:Label>
+                                &nbsp;&nbsp;
+                                <asp:Label ID="lblUser" runat="server" Text=""></asp:Label>
+                            </p>
+
+                                                            <p>
+                                <asp:Label ID="lbl3" runat="server" Text="نام :"></asp:Label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lblName" runat="server" Text=""></asp:Label>
+                            </p>
+
+                            <p>
+                                <asp:Label ID="lbl4" runat="server" Text="نام خانوادگی :"></asp:Label>
+                                &nbsp;
+                                <asp:Label ID="lblFamily" runat="server" Text=""></asp:Label>
+                            </p>
+
+                            <p>
+                                <asp:Label ID="lbl5" runat="server" Text="کد ملی :"></asp:Label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lblCodMeli" runat="server" Text=""></asp:Label>
+                            </p>
+
+                            <p>
+                                <asp:Label ID="lbl6" runat="server" Text="نوع کاربر :"></asp:Label>
+                                &nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lblTypeUser" runat="server" Text=""></asp:Label>
+                            </p>
+
+                            <br />
+                            <br />
+                            <div align="center">
+                                <p>
+                                    <asp:Button ID="btnExit" runat="server" Text="خروج" onclick="btnExit_Click" 
+                                        Width="75px" />
+                                </p>
+                            </div>
+                        </div>
+				    </div>
+
+			    </div>
+                <!------------------------------[END]---------------------------->
+
+                <!--------------------------------------------------------------->
+                <!---------------------------[Footer]---------------------------->
+                <!--------------------------------------------------------------->
+                <div class="col-md-12" style="margin-top:5px;">
+                    <div class="panel panel-default" style="margin:0px -15px 0px -15px;">
+
+                        <div class="panel-footer ">
+                            <h4 align="center"> تمامی حقوق مادی و معنوی این اثر متعلق به محمد عرب زاده می باشد</h4>
+                            <p align="center" style="font-size:12px">Email: Sampel@yahoo.com &emsp;|&emsp;Gmali: Sampel@gmail.com</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!------------------------------[END]---------------------------->
+
+            </div>
+            <!------------------------------[END]---------------------------->
+
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,205 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <title>سایت خبری و مسابقه آریا</title>
+
+    <script src="bootstrap/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        
+        .jumbotron
+        {
+            background-image: url('UplNewsPhoto/Koala.jpg'); /* Image Header */
+        }
+    </style>
+    
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            
+            <!--------------------------------------------------------------->
+            <!------------------------[Titel Header]------------------------->
+            <!--------------------------------------------------------------->
+            <div dir="rtl" class="jumbotron">
+                <h2>سایت خبری و مسابقه آریا</h2>
+            </div>
+            <!------------------------------[END]---------------------------->
+
+            <% if (Session["ID"] != null) { %>
+            <!--------------------------------------------------------------->
+            <!-------------------------[Info Login]-------------------------->
+            <!--------------------------------------------------------------->
+
+            <div class="panel <% Response.Write(Session["Theam"]); %>" dir="rtl">
+                <div class="panel-heading">
+                    <asp:Label ID="Label1" runat="server" Text="نام کاربری : "></asp:Label>
+                    <asp:Label ID="lblUser" runat="server"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label2" runat="server" Text="نام : "></asp:Label>
+                    <asp:Label ID="lblName" runat="server"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label3" runat="server" Text="نام خانوادگی : "></asp:Label>
+                    <asp:Label ID="lblFamily" runat="server"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label4" runat="server" Text="نوع کاربر : "></asp:Label>
+                    <asp:Label ID="lblTypeUser" runat="server"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <asp:HyperLink ID="Panel" runat="server"></asp:HyperLink>
+                    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click">خروج</asp:LinkButton>
+                </div>
+            </div>
+            
+            <!------------------------------[END]---------------------------->  
+            <% } %>
+
+            <!--------------------------------------------------------------->
+            <!-----------------------------[Menu]---------------------------->
+            <!--------------------------------------------------------------->
+            <nav class="navbar navbar-default <% Response.Write(Session["Theam"]); %>" >
+
+	        	<div class="container-fluid panel-heading">
+			        <div class="navbar-header">
+				        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+				        </button>
+			        </div>
+			
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul dir="rtl" class="nav navbar-nav navbar-right">
+                            <li><a href="Abuot.aspx">درباره ما</a></li>
+                            <li><a href="Shobehat_Answer.aspx">پاسخ به شبهات</a></li>
+                            <li><a href="Register.aspx">ثبت نام</a></li>
+                            <li><a href="Default.aspx">صفحه اصلی</a></li>
+                        </ul>
+                    </div>
+		        </div>
+
+	        </nav>
+            <!------------------------------[END]---------------------------->            
+                    
+            <!--------------------------------------------------------------->
+            <!----------------------------[Center]--------------------------->
+            <!--------------------------------------------------------------->
+            <div class="col-md-9" align="center">
+
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+		    		        
+                </asp:ContentPlaceHolder>
+
+            </div>
+            <!------------------------------[END]---------------------------->
+                
+            <!--------------------------------------------------------------->
+            <!----------------------------[Right]---------------------------->
+            <!--------------------------------------------------------------->
+            <div class="col-md-3">
+                    
+                <% if (Session["BlockLogin"].ToString() == "True") { %>
+
+                    <div class="panel <% Response.Write(Session["Theam"]); %>" style="margin-right:-15px;">
+					    <div class="panel-heading" align="right">
+                            <asp:Label ID="Label6" runat="server" Text="ورود کاربر"></asp:Label>
+                        </div>
+                	    <div class="panel-body" align="center" dir="rtl">
+                            <br />
+
+                            <asp:Label ID="Label5" runat="server" Text="نام کاربری :"></asp:Label>
+                            <br />
+                            <asp:TextBox ID="txtUser" runat="server"></asp:TextBox>
+
+                            <br />
+
+                            <asp:Label ID="lblPass" runat="server" Text="کلمه عبور :"></asp:Label>
+                            <br />
+                            <asp:TextBox ID="txtPass" runat="server" TextMode="Password"></asp:TextBox>
+
+                            <br />
+
+                            <asp:Label ID="lblError1" runat="server" ForeColor="#FF3300"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblError2" runat="server" ForeColor="#FF3300"></asp:Label>
+                            <br />
+                            <asp:Label ID="lblError3" runat="server" ForeColor="#FF3300"></asp:Label>
+
+                            <p>
+                                <asp:Button ID="btnLogin" runat="server" Text="ورود" Width="75px" onclick="btnLogin_Click" />
+                                &nbsp;
+                                <asp:Button ID="btnCancel" runat="server" Text="انصراف" Width="75px" onclick="btnCancel_Click" />
+                                    
+                            </p>
+                            <br />
+                            <br />
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Register.aspx">ثبت نام نکردی؟ همین الان ثبت نام کن</asp:HyperLink>
+                            <br />
+                            <br />
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/ForgetPassword.aspx">کلمه عبورت رو فراموش کردی؟</asp:HyperLink>
+                            <br />
+                            <br />
+
+                        </div>
+				    </div>
+
+                <% } %>
+                                        
+                <div class="panel <% Response.Write(Session["Theam"]); %>" style="margin-right:-15px;">
+					    <div class="panel-heading" align="right">
+                            <asp:Label ID="lblTitelB2" runat="server" Text=""></asp:Label>
+                        </div>
+                	    <div class="panel-body" align="right">
+                            <asp:Label ID="lblTextlB2" runat="server" Text=""></asp:Label>
+                        </div>
+				    </div>
+                    
+                <div class="panel <% Response.Write(Session["Theam"]); %>" style="margin-right:-15px;">
+					    <div class="panel-heading" align="right">
+                            <asp:Label ID="lblTitelB3" runat="server" Text="تغییر رنگ قالب"></asp:Label>
+                        </div>
+                	    <div class="panel-body   " align="right">
+                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Default.aspx?ID=Danger">تم قرمز</asp:HyperLink>
+                            <br />
+                            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Default.aspx?ID=Primary">تم آبی</asp:HyperLink>
+                            <br />
+                            <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Default.aspx?ID=Info">تم آبی کمرنگ</asp:HyperLink>
+                            <br />
+                            <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Default.aspx?ID=Warning">تم زرد</asp:HyperLink>
+                            <br />
+                            <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/Default.aspx?ID=Success">تم سبز</asp:HyperLink>
+                        </div>
+				    </div>
+
+            </div>
+            <!------------------------------[END]---------------------------->
+                
+            <!--------------------------------------------------------------->
+            <!---------------------------[Footer]---------------------------->
+            <!--------------------------------------------------------------->
+            <div class="col-md-12" style="margin:5px 0px 0px 0px;" dir="rtl">
+                <div class="panel <% Response.Write(Session["Theam"]); %>" style="margin:0px -15px 0px -15px;">
+
+                    <div class="panel-heading">
+                        <h4 align="center"> تمامی حقوق مادی و معنوی این اثر متعلق به محمد عرب زاده می باشد</h4>
+                        <p align="center" style="font-size:12px">Email: Sampel@yahoo.com &emsp;|&emsp;Gmali: Sampel@gmail.com</p>
+                    </div>
+
+                </div>
+            </div>
+            <!------------------------------[END]---------------------------->
+
+        </div>
+    </form>
+</body>
+</html>

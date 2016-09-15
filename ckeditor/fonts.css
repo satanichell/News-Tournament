@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "B Traffic";
+    src: url(font/B Traffic.ttf); /* IE */
+    src: local("B Traffic"), url("font/B Traffic.ttf") format("truetype"); /*non-IE*/
+}
+
+@font-face {
+    font-family: "B Titr";
+    src: url(font/B Titr.ttf); /* IE */
+    src: local("B Titr"), url("font/B Titr.ttf") format("truetype"); /*non-IE*/
+}
